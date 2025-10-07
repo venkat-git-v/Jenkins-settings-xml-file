@@ -71,6 +71,7 @@ pipeline {
             }
         }
     }
+}
    stage('Deploy to Staging/Production') {
             steps {
                 input "Proceed to deploy to destination org?"
@@ -78,7 +79,6 @@ pipeline {
             }
         }
     }
-}
     post {
         always {
             sh "${SFDX_CLI} force:org:delete -u test_scratch --noprompt"
