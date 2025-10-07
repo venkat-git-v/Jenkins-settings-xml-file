@@ -6,7 +6,7 @@ pipeline {
         SF_USERNAME = 'venkatarao1411768@agentforce.com'
         SF_LOGIN_URL = 'https://login.salesforce.com'
         JWT_KEY_FILE = credentials('SALESFORCE_SERVER_KEY') // Jenkins file credential (private key)
-        SFDX_CLI = '/usr/local/bin/sfdx' // Adjust path as needed
+        SFDX_CLI = 'C:\Program Files\sf\bin\sfdx' // Adjust path as needed
     }
 
     stages {
