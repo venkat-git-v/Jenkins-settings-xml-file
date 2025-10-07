@@ -15,8 +15,17 @@ pipeline {
                 checkout scm
             }
         }
-
-    stages {
+        stage('Authorize Salesforce Org via JWT') {
+            steps {
+                sh "$sfdx force:auth:jwt:grant --clientid 3MVG9dAEux2v1sLvkZuaCg5KeC1I82ApE4_xEStysjgftuu2eG4cGziaxOcYh.SWuhCN7WCkEEtSSQGqhWI3A --jwtkeyfile C:/openssl/bin/server.key --username venkatarao1411@gmail.com --instanceurl https://login.salesforce.com --setdefaultdevhubusername"
+            }
+        }
+ stage('Create Scratch Org') {
+            steps {
+                sh "${SFDX_CLI} force:org:create -f config/project-scratch-def.json -a test_scratch -s"
+            }
+        }
+  stages {
         stage('Demo: Modify XML false → true') {
             steps {
                 script {
@@ -38,17 +47,6 @@ pipeline {
             }
         }
     }
-
-        stage('Authorize Salesforce Org via JWT') {
-            steps {
-                sh "$sfdx force:auth:jwt:grant --clientid 3MVG9dAEux2v1sLvkZuaCg5KeC1I82ApE4_xEStysjgftuu2eG4cGziaxOcYh.SWuhCN7WCkEEtSSQGqhWI3A --jwtkeyfile C:/openssl/bin/server.key --username venkatarao1411@gmail.com --instanceurl https://login.salesforce.com --setdefaultdevhubusername"
-            }
-        }
- stage('Create Scratch Org') {
-            steps {
-                sh "${SFDX_CLI} force:org:create -f config/project-scratch-def.json -a test_scratch -s"
-            }
-        }
 
         stage('Push Source to Scratch Org') {
             steps {
