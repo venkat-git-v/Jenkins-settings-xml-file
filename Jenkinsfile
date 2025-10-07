@@ -44,7 +44,7 @@ pipeline {
             steps {
                 script {
                     // Demo XML file path
-                    def xmlFile = "sample.xml"
+                    def xmlFile = "Security.settings-meta.xml"
 
                     // Create a sample XML file for demo
                     writeFile file: xmlFile, text: """
