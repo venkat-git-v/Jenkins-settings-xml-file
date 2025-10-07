@@ -22,19 +22,6 @@ pipeline {
                 script {
                     // Demo XML file path
                     def xmlFile = "Security.settings-meta.xml"
-
-                    // Create a sample XML file for demo
-                    writeFile file: Security.settings-meta.xml, text: "XML file "
-                    <config>
-                         <enableAccountHistoryTracking>true</enableAccountHistoryTracking>
-                          <enableAccountInsightsInMobile>false</enableAccountInsightsInMobile>
-                            <enableAccountOwnerReport>false</enableAccountOwnerReport>
-                            <enableAccountTeams>false</enableAccountTeams>
-                            <enableContactHistoryTracking>true</enableContactHistoryTracking>
-                            <enableRelateContactToMultipleAccounts>true</enableRelateContactToMultipleAccounts>
-                            <showViewHierarchyLink>true</showViewHierarchyLink>
-                       
-                    </config>
                     echo "=== Original XML ==="
                     sh "cat ${xmlFile}"
 
