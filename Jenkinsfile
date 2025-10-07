@@ -11,9 +11,9 @@ pipeline {
                     // Create a sample XML file for demo
                     writeFile file: xmlFile, text: """
                     <config>
-    <enableAccountHistoryTracking>true</enableAccountHistoryTracking>
-    <enableAccountInsightsInMobile>false</enableAccountInsightsInMobile>
-    <enableAccountOwnerReport>false</enableAccountOwnerReport>
+                    <enableAccountHistoryTracking>true</enableAccountHistoryTracking>
+                    <enableAccountInsightsInMobile>false</enableAccountInsightsInMobile>
+                    <enableAccountOwnerReport>false</enableAccountOwnerReport>
                     </config>
                     echo "=== Original XML ==="
                     sh "cat ${xmlFile}"
