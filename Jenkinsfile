@@ -78,11 +78,11 @@ pipeline {
             }
         }
     }
-
+}
     post {
         always {
             sh "${SFDX_CLI} force:org:delete -u test_scratch --noprompt"
         }
     }
 }
-}
+
