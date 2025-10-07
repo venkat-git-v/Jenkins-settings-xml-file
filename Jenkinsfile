@@ -11,12 +11,10 @@ pipeline {
                     // Create a sample XML file for demo
                     writeFile file: xmlFile, text: """
                     <config>
-                        <enableLogin>false</enableLogin>
-                        <enableAdminAccess>false</enableAdminAccess>
-                        <secureMode>true</secureMode>
+    <enableAccountHistoryTracking>true</enableAccountHistoryTracking>
+    <enableAccountInsightsInMobile>false</enableAccountInsightsInMobile>
+    <enableAccountOwnerReport>false</enableAccountOwnerReport>
                     </config>
-                    """
-
                     echo "=== Original XML ==="
                     sh "cat ${xmlFile}"
 
