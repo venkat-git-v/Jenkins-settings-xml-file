@@ -18,7 +18,7 @@ pipeline {
 
         stage('Authorize Salesforce Org via JWT') {
             steps {
-                sh "$sfdx force:auth:jwt:grant --clientid 3MVG9dAEux2v1sLvkZuaCg5KeC1I82ApE4_xEStysjgftuu2eG4cGziaxOcYh.SWuhCN7WCkEEtSSQGqhWI3A --jwtkeyfile C:\openssl\bin\server.key --username venkatarao1411@gmail.com --instanceurl https://login.salesforce.com --setdefaultdevhubusername"
+                sh "$sfdx force:auth:jwt:grant --clientid 3MVG9dAEux2v1sLvkZuaCg5KeC1I82ApE4_xEStysjgftuu2eG4cGziaxOcYh.SWuhCN7WCkEEtSSQGqhWI3A --jwtkeyfile C:/openssl/bin/server.key --username venkatarao1411@gmail.com --instanceurl https://login.salesforce.com --setdefaultdevhubusername"
             }
         }
 
