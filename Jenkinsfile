@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+ 
+    stages {
+        stage('Demo: Modify XML false → true') {
+            steps {
+                script {
+                    // Demo XML file path
+                    def xmlFile = "sample.xml"
+ 
+                    // Create a sample XML file for demo
+                    writeFile file: xmlFile, text: """
+<config>
+<enableLogin>false</enableLogin>
+<enableAdminAccess>false</enableAdminAccess>
+<secureMode>true</secureMode>
+</config>
+                    echo "=== Original XML ==="
+                    sh "cat ${xmlFile}"
+ 
+                    // Replace all <tag>false</tag> with <tag>true</tag>
+                    def xmlText = readFile(xmlFile)
+                    def updatedXml = xmlText.replaceAll('>false<', '>true<')
+ 
+                    // Write updated content back to file
+                    writeFile file: xmlFile, text: updatedXml
+ 
+                    echo "=== Updated XML ==="
+                    sh "cat ${xmlFile}"
+                }
+            }
+        }
+    }
+}
