@@ -24,7 +24,7 @@ pipeline {
 
                     // Read and update XML
                     def xmlText = readFile(xmlFile)
-                    def updatedXml = xmlText.replaceAll('>false<', '>true<')
+                    def updatedXml = xmlText.replaceAll('>true<', '>false<')
 
                     // Save updated XML
                     writeFile file: xmlFile, text: updatedXml
