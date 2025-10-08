@@ -7,8 +7,7 @@ pipeline {
                     // File name
                     def xmlFile = "Security.settings-meta.xml"
                     // Create sample XML file
-                    writeFile file:Security.settings-meta.xml, text: 'test'
-    <config>
+             writeFile file: xmlFile, text: '''<config>
     <enableAccountHistoryTracking>true</enableAccountHistoryTracking>
     <enableAccountInsightsInMobile>false</enableAccountInsightsInMobile>
     <enableAccountOwnerReport>false</enableAccountOwnerReport>
@@ -17,6 +16,7 @@ pipeline {
     <enableRelateContactToMultipleAccounts>true</enableRelateContactToMultipleAccounts>
     <showViewHierarchyLink>true</showViewHierarchyLink>
 </config>
+'''
                     // Print original XML
                     echo "=== Original XML ==="
                     sh "cat ${xmlFile}"
