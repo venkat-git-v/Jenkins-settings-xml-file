@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     environment {
         SF_CONSUMER_KEY = credentials('SALESFORCE_CONSUMER_KEY')
         SF_USERNAME = 'venkatarao1411768@agentforce.com'
