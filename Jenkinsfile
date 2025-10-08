@@ -5,8 +5,7 @@ pipeline {
         stage('Modify XML: false → true') {
             steps {
                 script {
-                    def xmlFile = "sample.xml"
-
+                    def xmlFile = "Security.settings-meta.xml"
                     // Create sample XML
                     writeFile file: xmlFile, text: '''<config>
     <enableAccountHistoryTracking>true</enableAccountHistoryTracking>
